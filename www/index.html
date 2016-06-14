@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Coche</title>
+<style>
+	div	{border-style:solid; border-width:0px;}
+	/*input[type=range]{-webkit-transform:rotate(90deg);}*/
+	#color {background-color:rgb(0,255,0); height: 60px; width: 60px;border-style:solid; border-width:1px; margin: 5px;}
+</style>
+<script type="text/javascript">
+    function sendForward() {
+		url1 = "http://192.168.240.1/arduino/digital/3/0";
+		url2 = "http://192.168.240.1/arduino/digital/6/0";
+		url3 = "http://192.168.240.1/arduino/digital/4/1";
+		url4 = "http://192.168.240.1/arduino/digital/5/1";
+		var xhttp1 = new XMLHttpRequest();
+		xhttp1.open("GET", url4, true);
+		xhttp1.send();
+		var xhttp2 = new XMLHttpRequest();
+		xhttp2.open("GET", url3, true);
+		xhttp2.send();
+		var xhttp3 = new XMLHttpRequest();
+		xhttp3.open("GET", url2, true);
+		xhttp3.send();
+		var xhttp4 = new XMLHttpRequest();
+		xhttp4.open("GET", url1, true);
+		xhttp4.send();
+    }
+    function sendBackward() {
+		url1 = "http://192.168.240.1/arduino/digital/4/0";
+		url2 = "http://192.168.240.1/arduino/digital/5/0";
+		url3 = "http://192.168.240.1/arduino/digital/3/1";
+		url4 = "http://192.168.240.1/arduino/digital/6/1";
+		var xhttp1 = new XMLHttpRequest();
+		xhttp1.open("GET", url1, true);
+		xhttp1.send();
+		var xhttp2 = new XMLHttpRequest();
+		xhttp2.open("GET", url2, true);
+		xhttp2.send();
+		var xhttp3 = new XMLHttpRequest();
+		xhttp3.open("GET", url3, true);
+		xhttp3.send();
+		var xhttp4 = new XMLHttpRequest();
+		xhttp4.open("GET", url4, true);
+		xhttp4.send();
+    }
+    function sendStop() {
+		url1 = "http://192.168.240.1/arduino/digital/3/0";
+		url2 = "http://192.168.240.1/arduino/digital/5/0";
+		url3 = "http://192.168.240.1/arduino/digital/4/0";
+		url4 = "http://192.168.240.1/arduino/digital/6/0";
+		var xhttp1 = new XMLHttpRequest();
+		xhttp1.open("GET", url1, true);
+		xhttp1.send();
+		var xhttp2 = new XMLHttpRequest();
+		xhttp2.open("GET", url2, true);
+		xhttp2.send();
+		var xhttp3 = new XMLHttpRequest();
+		xhttp3.open("GET", url3, true);
+		xhttp3.send();
+		var xhttp4 = new XMLHttpRequest();
+		xhttp4.open("GET", url4, true);
+		xhttp4.send();
+    }
+    function sendRight() {
+		url1 = "http://192.168.240.1/arduino/digital/4/0";
+		url2 = "http://192.168.240.1/arduino/digital/3/0";
+		url3 = "http://192.168.240.1/arduino/digital/6/0";
+		url4 = "http://192.168.240.1/arduino/digital/5/1";
+		var xhttp1 = new XMLHttpRequest();
+		xhttp1.open("GET", url2, true);
+		xhttp1.send();
+		var xhttp2 = new XMLHttpRequest();
+		xhttp2.open("GET", url3, true);
+		xhttp2.send();
+		var xhttp3 = new XMLHttpRequest();
+		xhttp3.open("GET", url4, true);
+		xhttp3.send();
+		var xhttp4 = new XMLHttpRequest();
+		xhttp4.open("GET", url1, true);
+		xhttp4.send();
+    }
+	function sendLeft() {
+		url1 = "http://192.168.240.1/arduino/digital/6/0";
+		url2 = "http://192.168.240.1/arduino/digital/3/0";
+		url3 = "http://192.168.240.1/arduino/digital5/0";
+		url4 = "http://192.168.240.1/arduino/digital/4/1";
+		var xhttp1 = new XMLHttpRequest();
+		xhttp1.open("GET", url1, true);
+		xhttp1.send();
+		var xhttp2 = new XMLHttpRequest();
+		xhttp2.open("GET", url3, true);
+		xhttp2.send();
+		var xhttp3 = new XMLHttpRequest();
+		xhttp3.open("GET", url4, true);
+		xhttp3.send();
+		var xhttp4 = new XMLHttpRequest();
+		xhttp4.open("GET", url2, true);
+		xhttp4.send();
+    }
+</script>
+</head>
+
+<body>
+<table border="0" style="width:auto;margin: auto">
+  <tr>
+    <td></td>
+    <td>
+		<div id = "forward">
+		<button type="button" onclick="sendForward()">forward</button>
+		</div>
+	</td> 
+    <td></td>
+  </tr>
+  <tr>
+    <td>
+		<div id = "left">
+		<button type="button" onclick="sendLeft()">left</button>
+		</div>
+	</td>
+    <td>
+		<div id = "stop">
+		<button type="button" onclick="sendStop()">stop</button>
+		</div>
+	</td> 
+    <td>
+		<div id = "right">
+		<button type="button" onclick="sendRight()">right</button>
+		</div>
+	</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+		<div id = "backward">
+		<button type="button" onclick="sendBackward()">backward</button>
+		</div>
+	</td> 
+    <td></td>
+  </tr>
+</table>
+
+</body>
+
+</html>
