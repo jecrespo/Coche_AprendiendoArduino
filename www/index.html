@@ -10,94 +10,62 @@
 </style>
 <script type="text/javascript">
     function sendForward() {
-		url1 = "http://192.168.240.1/arduino/digital/3/0";
-		url2 = "http://192.168.240.1/arduino/digital/6/0";
-		url3 = "http://192.168.240.1/arduino/digital/4/1";
-		url4 = "http://192.168.240.1/arduino/digital/5/1";
+		url1 = "http://192.168.240.1/arduino/F";
 		var xhttp1 = new XMLHttpRequest();
-		xhttp1.open("GET", url4, true);
+		xhttp1.open("GET", url1, true);
 		xhttp1.send();
-		var xhttp2 = new XMLHttpRequest();
-		xhttp2.open("GET", url3, true);
-		xhttp2.send();
-		var xhttp3 = new XMLHttpRequest();
-		xhttp3.open("GET", url2, true);
-		xhttp3.send();
-		var xhttp4 = new XMLHttpRequest();
-		xhttp4.open("GET", url1, true);
-		xhttp4.send();
     }
     function sendBackward() {
-		url1 = "http://192.168.240.1/arduino/digital/4/0";
-		url2 = "http://192.168.240.1/arduino/digital/5/0";
-		url3 = "http://192.168.240.1/arduino/digital/3/1";
-		url4 = "http://192.168.240.1/arduino/digital/6/1";
+		url1 = "http://192.168.240.1/arduino/K";
 		var xhttp1 = new XMLHttpRequest();
 		xhttp1.open("GET", url1, true);
 		xhttp1.send();
-		var xhttp2 = new XMLHttpRequest();
-		xhttp2.open("GET", url2, true);
-		xhttp2.send();
-		var xhttp3 = new XMLHttpRequest();
-		xhttp3.open("GET", url3, true);
-		xhttp3.send();
-		var xhttp4 = new XMLHttpRequest();
-		xhttp4.open("GET", url4, true);
-		xhttp4.send();
     }
     function sendStop() {
-		url1 = "http://192.168.240.1/arduino/digital/3/0";
-		url2 = "http://192.168.240.1/arduino/digital/5/0";
-		url3 = "http://192.168.240.1/arduino/digital/4/0";
-		url4 = "http://192.168.240.1/arduino/digital/6/0";
+		url1 = "http://192.168.240.1/arduino/P";
 		var xhttp1 = new XMLHttpRequest();
 		xhttp1.open("GET", url1, true);
 		xhttp1.send();
-		var xhttp2 = new XMLHttpRequest();
-		xhttp2.open("GET", url2, true);
-		xhttp2.send();
-		var xhttp3 = new XMLHttpRequest();
-		xhttp3.open("GET", url3, true);
-		xhttp3.send();
-		var xhttp4 = new XMLHttpRequest();
-		xhttp4.open("GET", url4, true);
-		xhttp4.send();
     }
     function sendRight() {
-		url1 = "http://192.168.240.1/arduino/digital/4/0";
-		url2 = "http://192.168.240.1/arduino/digital/3/0";
-		url3 = "http://192.168.240.1/arduino/digital/6/0";
-		url4 = "http://192.168.240.1/arduino/digital/5/1";
-		var xhttp1 = new XMLHttpRequest();
-		xhttp1.open("GET", url2, true);
-		xhttp1.send();
-		var xhttp2 = new XMLHttpRequest();
-		xhttp2.open("GET", url3, true);
-		xhttp2.send();
-		var xhttp3 = new XMLHttpRequest();
-		xhttp3.open("GET", url4, true);
-		xhttp3.send();
-		var xhttp4 = new XMLHttpRequest();
-		xhttp4.open("GET", url1, true);
-		xhttp4.send();
-    }
-	function sendLeft() {
-		url1 = "http://192.168.240.1/arduino/digital/6/0";
-		url2 = "http://192.168.240.1/arduino/digital/3/0";
-		url3 = "http://192.168.240.1/arduino/digital5/0";
-		url4 = "http://192.168.240.1/arduino/digital/4/1";
+		url1 = "http://192.168.240.1/arduino/H";
 		var xhttp1 = new XMLHttpRequest();
 		xhttp1.open("GET", url1, true);
 		xhttp1.send();
-		var xhttp2 = new XMLHttpRequest();
-		xhttp2.open("GET", url3, true);
-		xhttp2.send();
-		var xhttp3 = new XMLHttpRequest();
-		xhttp3.open("GET", url4, true);
-		xhttp3.send();
-		var xhttp4 = new XMLHttpRequest();
-		xhttp4.open("GET", url2, true);
-		xhttp4.send();
+    }
+	function sendLeft() {
+		url1 = "http://192.168.240.1/arduino/L";
+		var xhttp1 = new XMLHttpRequest();
+		xhttp1.open("GET", url1, true);
+		xhttp1.send();
+    }
+	function sendR() {
+		valorR = document.getElementById("R").value;
+		url = "http://192.168.240.1/arduino/R/"+valorR;
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", url, true);
+		xhttp.send();
+    }
+    function sendG() {
+		valorG = document.getElementById("G").value;
+		url = "http://192.168.240.1/arduino/G/"+valorG;
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", url, true);
+		xhttp.send();
+    }
+    function sendB() {
+		valorB = document.getElementById("B").value;
+		url = "http://192.168.240.1/arduino/B/"+valorB;
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", url, true);
+		xhttp.send();
+    }
+    function sendBrillo() {
+		valorWait = document.getElementById("brillo").value;
+		url = "http://192.168.240.1/arduino/S/"+valorWait;
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", url, true);
+		xhttp.send();
     }
 </script>
 </head>
@@ -141,6 +109,24 @@
   </tr>
 </table>
 
+<table border="0" style="width:auto;margin: auto">
+<div id = "CR">
+R
+<input id = "R" type="range" name="R" min="0" max="255" step="1" value="0" onchange="sendR()">
+</div>
+<div id = "CG">
+G
+<input id = "G" type="range" name="G" min="0" max="255" step="1" value="0" onchange="sendG()">
+</div>
+<div id = "CB">
+B
+<input id = "B" type="range" name="B" min="0" max="255" step="1" value="0" onchange="sendB()">
+</div>
+<div id = "Cbrillo">
+Brillo
+<input id = "brillo" type="range" name="brillo" min="1" max="255" step="1" value="0" onchange="sendBrillo()">
+</div>
+</table>
 </body>
 
 </html>
