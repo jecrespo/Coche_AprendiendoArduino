@@ -45,7 +45,7 @@ void loop() {
   BridgeClient client = server.accept();
   if (client) {
     String command = client.readStringUntil('/');
-    Serial.print(command);
+    Serial.println(command);
     if (command == "R") {
       R_color = client.parseInt();
       uint32_t color_IZQ = strip_IZQ.Color(R_color, G_color, B_color);
